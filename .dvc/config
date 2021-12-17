@@ -1,0 +1,4 @@
+[core]
+    remote = datasetdistant
+['remote "datasetdistant"']
+    url = gdrive://1VAPD8fOevlAlP7AvrZPEDaeqO6_HuEAO
