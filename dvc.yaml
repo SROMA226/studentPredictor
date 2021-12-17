@@ -5,3 +5,10 @@ stages:
     - scripts/create_dataset.py
     outs:
     - assets/data
+  creation_features:
+    cmd: python scripts/extract_features.py
+    deps:
+    - assets/data
+    - scripts/extract_features.py
+    outs:
+    - assets/features
