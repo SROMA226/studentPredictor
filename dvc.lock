@@ -26,3 +26,36 @@ stages:
       md5: b997e5f5a0af00b02bbe33baa787fe85.dir
       size: 82039
       nfiles: 4
+  train-randomforest-regressor:
+    cmd: python scripts/train_model.py
+    deps:
+    - path: assets/features/train_features.csv
+      md5: fb1e380a2e12d6b0ae39cc77474c5e85
+      size: 52984
+    - path: assets/features/train_labels.csv
+      md5: 9f855a6bafbd146454af35ba4a357f93
+      size: 12451
+    outs:
+    - path: assets/models
+      md5: 84be24511345c4add46470ebfd536034.dir
+      size: 829202
+      nfiles: 1
+  eval-model:
+    cmd: python scripts/eval_model.py
+    deps:
+    - path: assets/features/test_features.csv
+      md5: 485aaa36029efaedee2c3ff068a13c44
+      size: 13465
+    - path: assets/features/test_labels.csv
+      md5: a27f0ae650e06651473a160ab18c77a2
+      size: 3139
+    - path: assets/models/model.pk
+      md5: b9bf65a91c4bab29c99b2ace7de4835c
+      size: 829202
+    - path: scripts/eval_model.py
+      md5: a9a18eeaaa081f39e6f9d1c24f3af71f
+      size: 883
+    outs:
+    - path: assets/metrics.json
+      md5: df5c5f97abeffd069ced67a6536f21cd
+      size: 89
